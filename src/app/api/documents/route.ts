@@ -74,7 +74,7 @@ export async function POST(request: Request) {
 
   if (file.size > MAX_BYTES) {
     return NextResponse.json(
-      { error: "File too large. Keep uploads under 8MB on the free demo." },
+      { error: "File too large. Keep uploads under 8MB." },
       { status: 400 },
     );
   }

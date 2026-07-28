@@ -62,14 +62,12 @@ export default async function DeskPage() {
       <div className="mx-auto mb-2 max-w-7xl space-y-2 px-4 sm:px-6">
         {!isGeminiConfigured() && (
           <p className="rounded-xl border border-amber/25 bg-amber/5 px-3 py-2 text-sm text-ink/75">
-            Add <code className="font-mono text-xs">GEMINI_API_KEY</code> to
-            .env.local so upload + chat can embed and answer.
+            Answers are temporarily unavailable. Please try again later.
           </p>
         )}
         {!isTursoConfigured() && (
           <p className="rounded-xl border border-line bg-white/70 px-3 py-2 text-sm text-ink/65">
-            Using local SQLite for now. Add Turso keys to deploy without a
-            pausing cloud DB. See README.
+            Running in local mode. Your documents stay on this machine.
           </p>
         )}
       </div>

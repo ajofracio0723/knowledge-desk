@@ -119,7 +119,7 @@ export function DeskApp({
           id: crypto.randomUUID(),
           role: "assistant",
           content:
-            "I couldn’t answer that just now. Check your Gemini key and that at least one document is ready.",
+            "I couldn’t answer that just now. Make sure at least one document is ready, then try again.",
         },
       ]);
       return;
@@ -300,8 +300,8 @@ export function DeskApp({
             </button>
           </div>
           <p className="mt-2 px-1 text-[11px] text-ink/40">
-            Tip: keep demo files under {formatBytes(8 * 1024 * 1024)}. Free Gemini
-            quotas apply.
+            Tip: keep uploads under {formatBytes(8 * 1024 * 1024)} for reliable
+            processing.
           </p>
         </form>
       </section>
