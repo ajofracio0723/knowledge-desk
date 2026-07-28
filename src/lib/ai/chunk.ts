@@ -69,6 +69,14 @@ export function chunkText(raw: string): string[] {
   });
 }
 
+async function extractPdfText(buffer: Buffer): Promise<string> {
+  // unpdf is serverless-friendly (no DOMMatrix / canvas requirement for text)
+  const { extractText, getDocumentProxy } = await import("unpdf");
+  const pdf = await getDocumentProxy(new Uint8Array(buffer));
+  const result = await extractText(pdf, { mergePages: true });
+  return result.text || "";
+}
+
 export async function extractTextFromFile(file: File): Promise<string> {
   const type = file.type || "";
   const name = file.name.toLowerCase();
@@ -84,16 +92,11 @@ export async function extractTextFromFile(file: File): Promise<string> {
   }
 
   if (type === "application/pdf" || name.endsWith(".pdf")) {
-    const { PDFParse } = await import("pdf-parse");
     const buffer = Buffer.from(await file.arrayBuffer());
-    const parser = new PDFParse({ data: buffer });
-    try {
-      const result = await parser.getText();
-      return result.text || "";
-    } finally {
-      await parser.destroy().catch(() => undefined);
-    }
+    return extractPdfText(buffer);
   }
 
-  throw new Error("Unsupported file type. Upload PDF, Markdown, TXT, CSV, or JSON.");
+  throw new Error(
+    "Unsupported file type. Upload PDF, Markdown, TXT, CSV, or JSON.",
+  );
 }
