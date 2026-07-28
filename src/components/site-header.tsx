@@ -2,6 +2,12 @@ import Link from "next/link";
 import { BookOpenCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const navLinks = [
+  { href: "/how-it-works", label: "How it works" },
+  { href: "/stack", label: "Tech stack" },
+  { href: "/about", label: "About" },
+];
+
 export function SiteHeader({
   compact = false,
   showAuth = true,
@@ -32,22 +38,36 @@ export function SiteHeader({
         </span>
       </Link>
 
-      {showAuth && (
-        <nav className="flex items-center gap-2 sm:gap-3">
-          <Link
-            href="/login"
-            className="rounded-lg px-3 py-2 text-sm font-medium text-ink/70 transition hover:bg-white/60 hover:text-ink"
-          >
-            Log in
-          </Link>
-          <Link
-            href="/signup"
-            className="rounded-lg bg-ink px-3.5 py-2 text-sm font-medium text-paper transition hover:bg-teal-deep"
-          >
-            Get started
-          </Link>
+      <div className="flex items-center gap-1 sm:gap-2">
+        <nav className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-lg px-3 py-2 text-sm font-medium text-ink/65 transition hover:bg-white/60 hover:text-ink"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
-      )}
+
+        {showAuth && (
+          <nav className="flex items-center gap-2 sm:gap-3">
+            <Link
+              href="/login"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-ink/70 transition hover:bg-white/60 hover:text-ink"
+            >
+              Log in
+            </Link>
+            <Link
+              href="/signup"
+              className="rounded-lg bg-ink px-3.5 py-2 text-sm font-medium text-paper transition hover:bg-teal-deep"
+            >
+              Get started
+            </Link>
+          </nav>
+        )}
+      </div>
     </header>
   );
 }
