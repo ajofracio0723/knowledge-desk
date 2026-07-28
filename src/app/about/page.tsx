@@ -17,61 +17,44 @@ export default function AboutPage() {
           About
         </p>
         <h1 className="mt-3 max-w-3xl font-[family-name:var(--font-fraunces)] text-4xl tracking-tight text-ink sm:text-5xl animate-rise">
-          A portfolio project that proves AI + product engineering
+          Knowledge should be easy to ask, not hard to hunt for
         </h1>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink/65 animate-rise-delay">
-          Knowledge Desk was built to show more than a chat UI. It combines
-          authentication, document ingestion, vector retrieval, and a
-          production deploy on free-tier infrastructure.
+          Knowledge Desk helps people get answers from the documents they
+          already trust: policies, handbooks, FAQs, and internal notes.
         </p>
 
         <section className="mt-14 max-w-3xl space-y-6 border-t border-line/80 pt-10 text-base leading-relaxed text-ink/70">
           <p>
-            Many portfolio AI demos stop at a single prompt box. This project
-            focuses on the full loop companies care about: store private docs,
-            retrieve relevant context, and answer from that context.
+            Most teams already wrote the answers. They just live in PDFs,
+            folders, and shared drives that are slow to search. Knowledge Desk
+            gives those documents a simple chat interface.
           </p>
           <p>
-            The product is intentionally simple to demo. Upload a short
-            document, ask a real question, and see a grounded reply. Under the
-            hood it still uses the same shape as production RAG systems.
+            Upload your files, ask a question, and get a clear reply based on
+            what you uploaded. No need to remember exact filenames or skim
+            twenty pages to find one paragraph.
           </p>
           <p>
-            Live demo:{" "}
-            <a
-              href="https://knowledge-desk.vercel.app"
-              className="font-medium text-teal hover:text-teal-deep"
-              target="_blank"
-              rel="noreferrer"
-            >
-              knowledge-desk.vercel.app
-            </a>
-            . Source:{" "}
-            <a
-              href="https://github.com/ajofracio0723/knowledge-desk"
-              className="font-medium text-teal hover:text-teal-deep"
-              target="_blank"
-              rel="noreferrer"
-            >
-              github.com/ajofracio0723/knowledge-desk
-            </a>
-            .
+            We built Knowledge Desk for people who want practical answers at
+            work: support, operations, product, and anyone managing a growing
+            set of documents.
           </p>
         </section>
 
         <section className="mt-14 grid gap-8 border-t border-line/80 pt-10 sm:grid-cols-3">
           {[
             {
-              title: "Problem",
-              body: "Generic chatbots invent answers. Teams need answers from their own documents.",
+              title: "Private",
+              body: "Your library belongs to your account. Documents stay separated by user.",
             },
             {
-              title: "Approach",
-              body: "Chunk, embed, retrieve, then generate. Keep the UX clean enough for a portfolio demo.",
+              title: "Simple",
+              body: "Upload, ask, and get an answer. No complicated setup for everyday use.",
             },
             {
-              title: "Outcome",
-              body: "A deployable RAG product with auth, storage, and a live Vercel URL.",
+              title: "Grounded",
+              body: "Responses are based on your files, so you stay closer to the source of truth.",
             },
           ].map((item) => (
             <div key={item.title}>
@@ -90,7 +73,7 @@ export default function AboutPage() {
             href="/signup"
             className="inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-paper transition hover:bg-teal-deep"
           >
-            Open the desk
+            Create your desk
             <ArrowRight className="size-4" />
           </Link>
         </div>

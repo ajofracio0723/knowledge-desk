@@ -6,23 +6,23 @@ import { SiteHeader } from "@/components/site-header";
 const steps = [
   {
     step: "01",
-    title: "Create your desk",
-    body: "Sign up with email and password. Your documents and chat stay tied to your account.",
+    title: "Create your account",
+    body: "Sign up with your email. Your documents and conversations stay private to your desk.",
   },
   {
     step: "02",
-    title: "Upload a document",
-    body: "Add a PDF, Markdown, TXT, CSV, or JSON file. Knowledge Desk extracts the text, splits it into chunks, and embeds each chunk with Gemini.",
+    title: "Upload your documents",
+    body: "Add PDFs, Markdown, TXT, CSV, or JSON files. Knowledge Desk reads them and prepares them for search.",
   },
   {
     step: "03",
-    title: "Ask a question",
-    body: "Your question is embedded too. The app finds the closest passages in your library using cosine similarity.",
+    title: "Ask in plain language",
+    body: "Type the question you would normally ask a teammate. No special search syntax required.",
   },
   {
     step: "04",
-    title: "Get a grounded answer",
-    body: "Gemini answers using only the retrieved passages, so replies stay based on your files instead of inventing details.",
+    title: "Get a clear answer",
+    body: "Knowledge Desk finds the most relevant passages in your files and writes a complete reply from that information.",
   },
 ];
 
@@ -43,9 +43,8 @@ export default function HowItWorksPage() {
           From upload to answer in four steps
         </h1>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink/65 animate-rise-delay">
-          Knowledge Desk is a retrieval-augmented generation (RAG) product. It
-          does not guess from the whole internet. It searches your uploaded
-          documents first, then asks Gemini to answer from that context.
+          Knowledge Desk is built for people who need reliable answers from
+          their own documents, without digging through folders every time.
         </p>
 
         <ol className="mt-14 space-y-10">
@@ -71,18 +70,18 @@ export default function HowItWorksPage() {
 
         <section className="mt-16 border-t border-line/80 pt-12">
           <h2 className="font-[family-name:var(--font-fraunces)] text-3xl text-ink">
-            What you can try
+            What people ask first
           </h2>
           <ul className="mt-5 max-w-2xl space-y-3 text-base leading-relaxed text-ink/65">
-            <li>Upload a refund policy and ask about return windows.</li>
-            <li>Upload a project README and ask how the system works.</li>
-            <li>Upload meeting notes and ask for decisions or action items.</li>
+            <li>What is our return window for accessories?</li>
+            <li>Where do we document onboarding steps?</li>
+            <li>What decisions were made in last week’s notes?</li>
           </ul>
           <Link
             href="/signup"
             className="mt-8 inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-paper transition hover:bg-teal-deep"
           >
-            Try it yourself
+            Start free
             <ArrowRight className="size-4" />
           </Link>
         </section>

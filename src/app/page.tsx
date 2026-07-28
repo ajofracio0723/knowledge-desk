@@ -9,13 +9,8 @@ import {
 } from "lucide-react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { isGeminiConfigured } from "@/lib/utils";
-import { isTursoConfigured } from "@/lib/db";
 
 export default function HomePage() {
-  const geminiReady = isGeminiConfigured();
-  const tursoReady = isTursoConfigured();
-
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden">
       <div
@@ -28,21 +23,21 @@ export default function HomePage() {
         <section className="grid min-h-[70vh] items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="animate-rise">
             <p className="mb-4 font-[family-name:var(--font-ibm-mono)] text-xs uppercase tracking-[0.22em] text-teal">
-              Portfolio RAG product
+              Document intelligence
             </p>
             <h1 className="max-w-xl font-[family-name:var(--font-fraunces)] text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-[4.25rem]">
               Knowledge Desk
             </h1>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/70">
-              Upload docs. Ask questions. Get answers from your files. Built
-              with Next.js, Turso, and free Gemini.
+              Upload your documents, ask questions in plain language, and get
+              clear answers from your own files.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/signup"
                 className="inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-paper transition hover:bg-teal-deep"
               >
-                Open the desk
+                Get started free
                 <ArrowRight className="size-4" />
               </Link>
               <Link
@@ -52,27 +47,6 @@ export default function HomePage() {
                 See how it works
               </Link>
             </div>
-
-            {(!geminiReady || !tursoReady) && (
-              <div className="mt-8 max-w-lg rounded-2xl border border-amber/25 bg-amber/5 px-4 py-3 text-sm text-ink/75 animate-rise-delay">
-                <p className="font-semibold text-amber">Free setup</p>
-                <ul className="mt-2 list-disc space-y-1 pl-4">
-                  {!geminiReady && (
-                    <li>
-                      Add{" "}
-                      <code className="font-mono text-xs">GEMINI_API_KEY</code>{" "}
-                      for AI chat
-                    </li>
-                  )}
-                  {!tursoReady && (
-                    <li>
-                      Optional for deploy: Turso URL + token (local SQLite works
-                      until then)
-                    </li>
-                  )}
-                </ul>
-              </div>
-            )}
           </div>
 
           <div className="relative animate-rise-delay">
@@ -80,10 +54,10 @@ export default function HomePage() {
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/70 bg-ink text-paper shadow-[0_40px_100px_-50px_rgba(11,18,32,0.8)]">
               <div className="border-b border-white/10 px-5 py-4">
                 <p className="font-[family-name:var(--font-fraunces)] text-xl">
-                  Grounded answer
+                  Instant answers
                 </p>
                 <p className="mt-1 text-sm text-white/55">
-                  Retrieved from your private document library
+                  From your private document library
                 </p>
               </div>
               <div className="space-y-4 px-5 py-5">
@@ -101,15 +75,15 @@ export default function HomePage() {
 
         <section className="mt-20 border-t border-line/80 pt-16 animate-rise-delay-2">
           <p className="font-[family-name:var(--font-ibm-mono)] text-xs uppercase tracking-[0.18em] text-teal">
-            What it is
+            The problem
           </p>
           <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-fraunces)] text-3xl tracking-tight text-ink sm:text-4xl">
-            A private desk for documents and questions
+            Important answers are buried in your files
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/65 sm:text-lg">
-            Knowledge Desk is a RAG app: it reads your uploaded files, finds the
-            most relevant passages, and answers with Gemini. Perfect for policy
-            docs, product FAQs, project writeups, and portfolio demos.
+            Policies, handbooks, FAQs, and project notes pile up fast. Searching
+            page by page wastes time. Knowledge Desk turns those documents into
+            a private place you can ask questions.
           </p>
         </section>
 
@@ -117,18 +91,18 @@ export default function HomePage() {
           {[
             {
               icon: FileSearch,
-              title: "Ingest",
-              body: "PDF and text files are chunked, embedded, and stored in Turso.",
+              title: "Upload",
+              body: "Add PDFs and text files to your personal library in seconds.",
             },
             {
               icon: Sparkles,
-              title: "Retrieve",
-              body: "Your question finds the closest passages before Gemini drafts a reply.",
+              title: "Ask",
+              body: "Type a normal question, the same way you would ask a teammate.",
             },
             {
               icon: ShieldCheck,
-              title: "Answer",
-              body: "Replies stay grounded in your files instead of inventing details.",
+              title: "Trust",
+              body: "Answers come from your documents, not from random web guesses.",
             },
           ].map((item) => (
             <div key={item.title} className="border-t border-line/80 pt-5">
@@ -146,15 +120,14 @@ export default function HomePage() {
         <section className="mt-20 grid gap-10 border-t border-line/80 pt-16 lg:grid-cols-2 lg:gap-16">
           <div>
             <p className="font-[family-name:var(--font-ibm-mono)] text-xs uppercase tracking-[0.18em] text-teal">
-              Inside the desk
+              Everything you need
             </p>
             <h2 className="mt-3 font-[family-name:var(--font-fraunces)] text-3xl tracking-tight text-ink sm:text-4xl">
-              Built like a real product, not a toy chat UI
+              A calm workspace for your knowledge
             </h2>
             <p className="mt-4 text-base leading-relaxed text-ink/65">
-              Sign up, upload a library, and chat in a protected workspace. Each
-              user only sees their own documents. Data lives in Turso for
-              deploy, with a local SQLite fallback for development.
+              Create an account, keep your files private, and chat with your
+              library whenever you need a fast answer.
             </p>
           </div>
           <div className="space-y-6">
@@ -162,17 +135,17 @@ export default function HomePage() {
               {
                 icon: Library,
                 title: "Document library",
-                body: "Upload PDF, Markdown, TXT, CSV, or JSON. Delete anytime.",
+                body: "Store PDFs, Markdown, TXT, CSV, and JSON in one place.",
               },
               {
                 icon: MessageSquareText,
-                title: "Desk chat",
-                body: "Ask natural questions and get complete answers from your files.",
+                title: "Natural chat",
+                body: "Ask follow-up questions and get clear, complete replies.",
               },
               {
                 icon: ShieldCheck,
-                title: "Account auth",
-                body: "Email/password signup with cookie sessions and private data.",
+                title: "Private by default",
+                body: "Your documents stay tied to your account and are not shared.",
               },
             ].map((item) => (
               <div key={item.title} className="flex gap-4">
@@ -193,64 +166,69 @@ export default function HomePage() {
 
         <section className="mt-20 border-t border-line/80 pt-16">
           <p className="font-[family-name:var(--font-ibm-mono)] text-xs uppercase tracking-[0.18em] text-teal">
-            Tech stack
+            Built for real work
           </p>
-          <h2 className="mt-3 font-[family-name:var(--font-fraunces)] text-3xl tracking-tight text-ink sm:text-4xl">
-            Modern, free-tier friendly tools
+          <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-fraunces)] text-3xl tracking-tight text-ink sm:text-4xl">
+            Useful the moment your documents are uploaded
           </h2>
-          <div className="mt-8 grid gap-x-10 gap-y-4 sm:grid-cols-2">
+          <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {[
-              ["App", "Next.js 16, React 19, TypeScript, Tailwind CSS 4"],
-              ["Database", "Turso / libSQL with local SQLite fallback"],
-              ["AI", "Google Gemini embeddings + chat"],
-              ["Auth", "Cookie sessions with jose and bcrypt"],
-              ["Hosting", "Vercel production deploy"],
-              ["RAG flow", "Chunking, vector search, grounded generation"],
-            ].map(([label, value]) => (
-              <div
-                key={label}
-                className="flex flex-col gap-1 border-t border-line/70 pt-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
-              >
-                <span className="text-sm font-semibold text-ink">{label}</span>
-                <span className="text-sm text-ink/65 sm:text-right">
-                  {value}
-                </span>
+              {
+                title: "Support teams",
+                body: "Answer policy and process questions without digging through folders.",
+              },
+              {
+                title: "Operators",
+                body: "Keep handbooks and SOPs easy to query during busy days.",
+              },
+              {
+                title: "Founders",
+                body: "Turn notes, FAQs, and product docs into an always-ready assistant.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="border-t border-line/70 pt-5">
+                <h3 className="font-[family-name:var(--font-fraunces)] text-xl text-ink">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/65">
+                  {item.body}
+                </p>
               </div>
             ))}
           </div>
           <Link
-            href="/stack"
+            href="/use-cases"
             className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-teal transition hover:text-teal-deep"
           >
-            Full stack details
+            Explore use cases
             <ArrowRight className="size-4" />
           </Link>
         </section>
 
         <section className="mt-20 rounded-[1.75rem] bg-ink px-6 py-12 text-paper sm:px-10">
           <p className="font-[family-name:var(--font-ibm-mono)] text-xs uppercase tracking-[0.18em] text-teal">
-            Try it
+            Get started
           </p>
           <h2 className="mt-3 max-w-xl font-[family-name:var(--font-fraunces)] text-3xl tracking-tight sm:text-4xl">
-            Create an account and ask your first document question
+            Create your desk and ask your first question today
           </h2>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/65 sm:text-base">
-            Use a short FAQ or project doc, then ask something specific. That’s
-            the fastest way to see the RAG flow.
+            Upload a policy, FAQ, or handbook. Then ask something you usually
+            have to search for by hand.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/signup"
               className="inline-flex items-center gap-2 rounded-xl bg-paper px-5 py-3 text-sm font-semibold text-ink transition hover:bg-mist"
             >
-              Get started
+              Get started free
               <ArrowRight className="size-4" />
             </Link>
             <Link
               href="/about"
               className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-paper transition hover:bg-white/10"
             >
-              About the project
+              About Knowledge Desk
             </Link>
           </div>
         </section>

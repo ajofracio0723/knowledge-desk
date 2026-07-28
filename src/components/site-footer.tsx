@@ -9,8 +9,7 @@ export function SiteFooter() {
             Knowledge Desk
           </p>
           <p className="mt-2 max-w-sm text-sm leading-relaxed text-ink/60">
-            A portfolio RAG product for private document Q&A, built with
-            Next.js, Turso, and Gemini.
+            Private answers from your own documents. Upload once, ask anytime.
           </p>
         </div>
 
@@ -18,28 +17,15 @@ export function SiteFooter() {
           <Link href="/how-it-works" className="transition hover:text-ink">
             How it works
           </Link>
-          <Link href="/stack" className="transition hover:text-ink">
-            Tech stack
+          <Link href="/use-cases" className="transition hover:text-ink">
+            Use cases
           </Link>
           <Link href="/about" className="transition hover:text-ink">
             About
           </Link>
-          <a
-            href="https://github.com/ajofracio0723/knowledge-desk"
-            target="_blank"
-            rel="noreferrer"
-            className="transition hover:text-ink"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://knowledge-desk.vercel.app"
-            target="_blank"
-            rel="noreferrer"
-            className="transition hover:text-ink"
-          >
-            Live demo
-          </a>
+          <Link href="/signup" className="transition hover:text-ink">
+            Get started
+          </Link>
         </div>
       </div>
     </footer>
