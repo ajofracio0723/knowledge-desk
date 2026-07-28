@@ -1,4 +1,4 @@
-# Acme Gadgets — Refund & Support Policy
+# Acme Gadgets: Refund & Support Policy
 
 Last updated: July 2026
 
@@ -20,13 +20,13 @@ If an item arrives damaged, contact support within 48 hours with unboxing photos
 
 ## Support hours
 
-Support is available Monday–Saturday, 9:00–18:00 Asia/Manila.
+Support is available Monday-Saturday, 9:00-18:00 Asia/Manila.
 
 Email: support@acme-gadgets.example
 Chat: in-app Help Desk
 
 ## Shipping
 
-Standard Metro Manila delivery is 1–2 business days.
-Provincial delivery is 3–5 business days.
+Standard Metro Manila delivery is 1-2 business days.
+Provincial delivery is 3-5 business days.
 Express same-day is available for selected cities and carts above PHP 3,000.

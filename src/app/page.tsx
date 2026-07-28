@@ -26,7 +26,7 @@ export default function HomePage() {
               Knowledge Desk
             </h1>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/70">
-              Upload docs. Ask questions. Get answers with citations — Turso
+              Upload docs. Ask questions. Get answers with citations. Turso
               (deploy-ready) or local SQLite, plus free Gemini.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">

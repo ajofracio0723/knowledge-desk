@@ -69,7 +69,7 @@ export default async function DeskPage() {
         {!isTursoConfigured() && (
           <p className="rounded-xl border border-line bg-white/70 px-3 py-2 text-sm text-ink/65">
             Using local SQLite for now. Add Turso keys to deploy without a
-            pausing cloud DB — see README.
+            pausing cloud DB. See README.
           </p>
         )}
       </div>
