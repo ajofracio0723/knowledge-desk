@@ -325,7 +325,7 @@ export function DeskApp({
           </div>
           <p className="mt-2 px-1 text-[11px] text-ink/40">
             Tip: keep demo files under {formatBytes(8 * 1024 * 1024)}. Free Gemini
-            + Supabase quotas apply.
+            quotas apply.
           </p>
         </form>
       </section>
