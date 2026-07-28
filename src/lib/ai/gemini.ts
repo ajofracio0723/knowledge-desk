@@ -82,8 +82,8 @@ export async function generateGroundedAnswer(params: {
   const model = client.getGenerativeModel({
     model: getChatModelName(),
     generationConfig: {
-      temperature: 0.2,
-      maxOutputTokens: 1024,
+      temperature: 0.3,
+      maxOutputTokens: 4096,
     },
   });
 
@@ -97,9 +97,11 @@ export async function generateGroundedAnswer(params: {
   const prompt = `You are Knowledge Desk, an assistant that answers ONLY from the provided sources.
 
 Rules:
-- Prefer short, clear answers.
+- Give a complete, useful answer. Cover the important details from the sources.
+- Use short paragraphs or bullet points when that makes the answer clearer.
+- Finish your thoughts. Do not stop mid-sentence or mid-list.
 - Cite sources inline like [Source 1], [Source 2].
-- If the sources do not contain enough information, say you do not know based on the uploaded documents.
+- If the sources do not contain enough information, say what is missing and answer only what the sources support.
 - Do not invent facts outside the sources.
 
 SOURCES:
@@ -111,5 +113,9 @@ ${params.question}
 ANSWER:`;
 
   const result = await model.generateContent(prompt);
-  return result.response.text().trim();
+  const text = result.response.text().trim();
+  if (!text) {
+    throw new Error("The model returned an empty answer. Try asking again.");
+  }
+  return text;
 }

@@ -62,8 +62,8 @@ export async function POST(request: Request) {
         document_title: String(row.document_title),
         embedding: JSON.parse(String(row.embedding)) as number[],
       })),
-      matchCount: 6,
-      matchThreshold: 0.35,
+      matchCount: 10,
+      matchThreshold: 0.3,
     });
 
     const citations: Citation[] = ranked.map((row) => ({
