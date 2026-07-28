@@ -4,7 +4,6 @@ import { getSessionUser } from "@/lib/auth";
 import { embedText, generateGroundedAnswer } from "@/lib/ai/gemini";
 import { rankChunksBySimilarity } from "@/lib/ai/similarity";
 import { getDb } from "@/lib/db";
-import type { Citation } from "@/lib/types";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -66,14 +65,6 @@ export async function POST(request: Request) {
       matchThreshold: 0.3,
     });
 
-    const citations: Citation[] = ranked.map((row) => ({
-      documentId: row.document_id,
-      documentTitle: row.document_title,
-      chunkIndex: row.chunk_index,
-      content: row.content,
-      similarity: row.similarity,
-    }));
-
     const answer = await generateGroundedAnswer({
       question,
       contextBlocks: ranked.map((row) => ({
@@ -83,7 +74,7 @@ export async function POST(request: Request) {
       })),
     });
 
-    return NextResponse.json({ answer, citations });
+    return NextResponse.json({ answer });
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Chat request failed";

@@ -90,22 +90,22 @@ export async function generateGroundedAnswer(params: {
   const context = params.contextBlocks
     .map(
       (block, i) =>
-        `[Source ${i + 1}] ${block.title} (chunk ${block.index + 1})\n${block.content}`,
+        `[Document ${i + 1}] ${block.title}\n${block.content}`,
     )
     .join("\n\n");
 
-  const prompt = `You are Knowledge Desk, an assistant that answers ONLY from the provided sources.
+  const prompt = `You are Knowledge Desk, an assistant that answers ONLY from the provided documents.
 
 Rules:
-- Give a complete, useful answer. Cover the important details from the sources.
+- Give a complete, useful answer. Cover the important details from the documents.
 - Use short paragraphs or bullet points when that makes the answer clearer.
 - Finish your thoughts. Do not stop mid-sentence or mid-list.
-- Cite sources inline like [Source 1], [Source 2].
-- If the sources do not contain enough information, say what is missing and answer only what the sources support.
-- Do not invent facts outside the sources.
+- Do not mention source numbers, citations, or chunk indexes in the answer.
+- If the documents do not contain enough information, say what is missing and answer only what the documents support.
+- Do not invent facts outside the documents.
 
-SOURCES:
-${context || "(no sources retrieved)"}
+DOCUMENTS:
+${context || "(no documents retrieved)"}
 
 QUESTION:
 ${params.question}

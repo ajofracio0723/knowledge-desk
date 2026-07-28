@@ -26,7 +26,7 @@ export default function HomePage() {
               Knowledge Desk
             </h1>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/70">
-              Upload docs. Ask questions. Get answers with citations. Turso
+              Upload docs. Ask questions. Get answers from your files. Turso
               (deploy-ready) or local SQLite, plus free Gemini.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -83,10 +83,7 @@ export default function HomePage() {
                 </div>
                 <div className="rounded-2xl bg-teal/20 px-4 py-3 text-sm leading-relaxed text-paper">
                   Accessories can be returned within 14 days if unused and in
-                  original packaging. [Source 1]
-                </div>
-                <div className="rounded-xl border border-amber/30 bg-amber/10 px-3 py-2 text-xs text-amber-100">
-                  Source 1 · refund-policy.md · 91% match
+                  original packaging.
                 </div>
               </div>
             </div>
@@ -107,8 +104,8 @@ export default function HomePage() {
             },
             {
               icon: ShieldCheck,
-              title: "Cite",
-              body: "Every reply can show the exact source chunks it relied on.",
+              title: "Answer",
+              body: "Replies stay grounded in your uploaded documents, without inventing details.",
             },
           ].map((item) => (
             <div

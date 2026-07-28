@@ -11,17 +11,8 @@ export type KnowledgeDocument = {
   created_at: string;
 };
 
-export type Citation = {
-  documentId: string;
-  documentTitle: string;
-  chunkIndex: number;
-  content: string;
-  similarity: number;
-};
-
 export type ChatMessage = {
   id: string;
   role: "user" | "assistant";
   content: string;
-  citations?: Citation[];
 };

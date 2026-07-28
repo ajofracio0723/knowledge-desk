@@ -21,7 +21,7 @@ const ibmMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Knowledge Desk",
   description:
-    "Upload documents, ask questions, and get grounded answers with citations. Turso/SQLite RAG with Next.js and free Gemini.",
+    "Upload documents, ask questions, and get grounded answers from your files. Turso/SQLite RAG with Next.js and free Gemini.",
 };
 
 export default function RootLayout({

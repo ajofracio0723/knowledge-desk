@@ -26,7 +26,7 @@ export function DeskApp({
       id: "welcome",
       role: "assistant",
       content:
-        "Upload a PDF or text file, then ask a question. I’ll answer from your documents and show citations.",
+        "Upload a PDF or text file, then ask a question. I’ll answer from your documents.",
     },
   ]);
   const [question, setQuestion] = useState("");
@@ -131,7 +131,6 @@ export function DeskApp({
         id: crypto.randomUUID(),
         role: "assistant",
         content: data.answer,
-        citations: data.citations,
       },
     ]);
   }
@@ -226,7 +225,7 @@ export function DeskApp({
               Desk chat
             </h1>
             <p className="text-xs text-ink/50">
-              Grounded answers with source citations
+              Answers grounded in your uploaded documents
             </p>
           </div>
         </div>
@@ -250,29 +249,6 @@ export function DeskApp({
               >
                 <p className="whitespace-pre-wrap">{message.content}</p>
               </div>
-
-              {message.citations && message.citations.length > 0 && (
-                <div className="mt-2 space-y-2">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink/40">
-                    Sources
-                  </p>
-                  {message.citations.map((citation, index) => (
-                    <details
-                      key={`${message.id}-${citation.documentId}-${citation.chunkIndex}-${index}`}
-                      className="rounded-xl border border-amber/20 bg-amber/5 px-3 py-2"
-                    >
-                      <summary className="cursor-pointer text-xs font-medium text-amber">
-                        [{index + 1}] {citation.documentTitle} · chunk{" "}
-                        {citation.chunkIndex + 1} ·{" "}
-                        {Math.round(citation.similarity * 100)}% match
-                      </summary>
-                      <p className="mt-2 text-xs leading-relaxed text-ink/70">
-                        {citation.content}
-                      </p>
-                    </details>
-                  ))}
-                </div>
-              )}
             </div>
           ))}
 
